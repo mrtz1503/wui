@@ -11,12 +11,30 @@ option(WUI_BUILD_EXAMPLES "Build example" ON)
 
 # SOURCE_FILES
 set(SOURCE_FILES
-    window.cpp
+    Application.cpp
+    ApplicationConfig.cpp
+    Window.cpp
+    Event.cpp
+
+    Definition.h
+
 )
+
+if (WIN32)
+    set(PLATFORM_SOURCES
+        Error.cpp
+    )
+
+    list(TRANSFORM PLATFORM_SOURCES PREPEND "src/platform/win/")
+
+endif()
+
+
+
 list(TRANSFORM SOURCE_FILES PREPEND "src/")
 
 
-add_library(${PROJECT_NAME} ${SOURCE_FILES})
+add_library(${PROJECT_NAME} ${SOURCE_FILES} ${PLATFORM_SOURCES})
 add_library(${PROJECT_NAME}::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
 
 target_include_directories(wui
