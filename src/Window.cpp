@@ -22,19 +22,7 @@ namespace wui {
 
 
 
-	class Window {
-	public:
-
-
-
-
-
-	private:
-
-		
-
-	};
-
+	
 
 
 

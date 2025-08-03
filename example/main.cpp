@@ -7,12 +7,16 @@ int main()
     {
         wui::Application app;
         app.run();
-        std::cout << app.getFullFileName() << std::endl;
-
+        std::cout << app.getSysDriver().getBinFileName() << std::endl;
     }
     catch (const std::exception& e)
     {
-        std::cerr << "An unhandled error occurred while running the application: \n\t" << e.what() << std::endl;;
+        std::string msg = "An unhandled error occured while running the application: \n\t";
+        msg.append(e.what());
+
+        wui::Application::getSysDriver().displayError(msg);
+        std::cerr << e.what() << std::endl;;
+        exit(EXIT_FAILURE);
     }
 
     return 0;

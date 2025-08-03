@@ -15,6 +15,8 @@ set(SOURCE_FILES
     ApplicationConfig.cpp
     Window.cpp
     Event.cpp
+    SystemDriver.cpp
+    Utils.cpp
 
     Definition.h
 
@@ -22,7 +24,9 @@ set(SOURCE_FILES
 
 if (WIN32)
     set(PLATFORM_SOURCES
-        Error.cpp
+        Win32_Error.cpp
+        Win32_Init.cpp
+        Win32_SystemDriver.cpp
     )
 
     list(TRANSFORM PLATFORM_SOURCES PREPEND "src/platform/win/")
@@ -55,11 +59,11 @@ else()
     target_compile_options(${PROJECT_NAME} PRIVATE -Wall -Wextra -pedantic)
 endif()
 
-target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_17)
+target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_11)
 
 set_target_properties(${PROJECT_NAME} PROPERTIES 
     DEBUG_POSTFIX "d"
-    CMAKE_CXX_STANDARD 17
+    CMAKE_CXX_STANDARD 11
     CMAKE_CXX_STANDARD_REQUIRED ON
     CMAKE_CXX_EXTENSIONS OFF
 )

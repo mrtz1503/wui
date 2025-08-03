@@ -1,27 +1,25 @@
 #pragma once
 
+#include "wui/SystemDriver.h"
+
 #include <string>
-#include "wui/Event.h"
 
 
 
 namespace wui {
 
+
+	
 	class Application {
 	public:
-
 		
 		void run();
 
 
-		// returns the complete absolute path of the application
-		std::string getFullFileName();
 		
-
-
+		static SystemDriver& getSysDriver();
 
 	private:
-
 
 	};
 
