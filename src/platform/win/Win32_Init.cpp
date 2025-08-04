@@ -1,13 +1,19 @@
 #include "wui/SystemDriver.h"
 
 #include "platform/win/Win32_SystemDriver.h"
+#include "platform/win/Win32_WindowDriver.h"
 
+#include <memory>
 namespace wui {
 
-    SystemDriver& SystemDriver::getNew()
+    std::unique_ptr<SystemDriver> SystemDriver::getNew()
     {
-        static Win32SystemDriver localSysDriver;
-        return localSysDriver;
+        return std::make_unique<Win32SystemDriver>();
+    }
+
+    std::unique_ptr<WindowDriver> WindowDriver::getNew()
+    {
+        return std::make_unique<Win32_WindowDriver>();
     }
 
 }

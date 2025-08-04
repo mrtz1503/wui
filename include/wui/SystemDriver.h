@@ -5,7 +5,7 @@
 #include "wui/Utils.h"
 
 #include <utility>
-
+#include <memory>
 
 namespace wui {
 
@@ -13,7 +13,7 @@ namespace wui {
 	class SystemDriver {
 	public:
 
-		static SystemDriver& getNew();
+		static std::unique_ptr<SystemDriver> getNew();
 
 		
         // get the absolute filename of the executable binary

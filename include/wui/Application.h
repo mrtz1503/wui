@@ -3,6 +3,7 @@
 #include "wui/SystemDriver.h"
 
 #include <string>
+#include <memory>
 
 
 
@@ -13,14 +14,15 @@ namespace wui {
 	class Application {
 	public:
 		
-		void run();
+		static void run();
 
 
 		
-		static SystemDriver& getSysDriver();
+		static SystemDriver *getSysDriver();
 
 	private:
 
+		static std::unique_ptr<SystemDriver> m_sysDriver;
 	};
 
 }

@@ -20,6 +20,18 @@ namespace wui {
 
 	};
 
+	Window::Window()
+	{
+		m_driver = WindowDriver::getNew();
+        m_driver->setWindow(this);
+	}
+
+
+	void Window::show()
+	{
+
+
+	}
 
 
 	

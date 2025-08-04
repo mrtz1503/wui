@@ -12,6 +12,8 @@
 namespace wui {
 
 
+    std::unique_ptr<SystemDriver> Application::m_sysDriver = SystemDriver::getNew();
+
 
     void Application::run()
     {
@@ -20,13 +22,15 @@ namespace wui {
 
 
 
+
+
     }
 
 
 
-    SystemDriver& Application::getSysDriver()
+    SystemDriver *Application::getSysDriver()
     {
-        return  SystemDriver::getNew();
+        return m_sysDriver.get();
     }
 
 
