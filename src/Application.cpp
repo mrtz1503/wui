@@ -12,6 +12,13 @@
 namespace wui {
 
 
+    std::shared_ptr<SystemDriver> Application::s_sysDriver;
+
+
+    Application::Application()
+    {
+        s_sysDriver = SystemDriver::getNew();
+    }
 
     void Application::run()
     {
@@ -20,13 +27,15 @@ namespace wui {
 
 
 
+
+
     }
 
 
 
-    SystemDriver& Application::getSysDriver()
+    std::shared_ptr<SystemDriver> Application::getSysDriver()
     {
-        return  SystemDriver::getNew();
+        return s_sysDriver;
     }
 
 

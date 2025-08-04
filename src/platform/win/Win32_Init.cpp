@@ -1,13 +1,18 @@
 #include "wui/SystemDriver.h"
 
 #include "platform/win/Win32_SystemDriver.h"
-
+#include "platform/win/Win32_WindowDriver.h"
+#include <memory>
 namespace wui {
 
-    SystemDriver& SystemDriver::getNew()
+    std::shared_ptr<SystemDriver> SystemDriver::getNew()
     {
-        static Win32SystemDriver localSysDriver;
-        return localSysDriver;
+        return std::make_shared<Win32SystemDriver>();
     }
 
+
+    std::shared_ptr<WindowDriver> WindowDriver::getNew(std::weak_ptr<Window> window)
+    {
+        return std::make_shared<Win32WindowDriver>(window);
+    }
 }

@@ -17,6 +17,7 @@ set(SOURCE_FILES
     Event.cpp
     SystemDriver.cpp
     Utils.cpp
+    MainWindow.cpp
 
     Definition.h
 
@@ -27,6 +28,7 @@ if (WIN32)
         Win32_Error.cpp
         Win32_Init.cpp
         Win32_SystemDriver.cpp
+        Win32_WindowDriver.cpp
     )
 
     list(TRANSFORM PLATFORM_SOURCES PREPEND "src/platform/win/")
