@@ -17,7 +17,8 @@ set(SOURCE_FILES
     Event.cpp
     SystemDriver.cpp
     Utils.cpp
-    MainWindow.cpp
+    WindowDriver.cpp
+   
 
     Definition.h
 

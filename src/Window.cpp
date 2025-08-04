@@ -13,17 +13,21 @@ namespace wui {
 
 
 
-    Window::Window()
+	Window::Window()
+	{
+		m_driver = WindowDriver::getNew();
+        m_driver->setWindow(this);
+	}
+
+
+	void Window::show()
+	{
+
+
+	}
+
+  Window::~Window()
     {
-
-        Application::registerWindow(this);
-       
-    }
-
-
-    Window::~Window()
-    {
-        Application::unregisterWindow(this);
     }
 	
 

@@ -2,6 +2,8 @@
 
 #include "wui/WindowDriver.h"
 
+#include <Windows.h>
+
 namespace wui {
 
     class Win32WindowDriver : public WindowDriver {
@@ -13,10 +15,11 @@ namespace wui {
         
 
     private:
-        HWND hWnd;
+        HWND m_hWnd;
     };
 
 
 
 
 }
+

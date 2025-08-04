@@ -3,14 +3,13 @@
 
 int main()
 {
-
-    wui::MainWindow exampleWindow;
-    exampleWindow.show();
-
-
-
+  
     try
     {
+
+        wui::FramedWindow fw;
+        fw.show();
+
         wui::Application::run();
     }
     catch (const std::exception& e)
@@ -19,7 +18,12 @@ int main()
             + std::string(e.what());
 
         wui::Application::getSysDriver()->displayError(msg);
+
+        std::cerr << e.what() << std::endl;;
+        exit(EXIT_FAILURE);
+
         ::exit(EXIT_FAILURE);
+
     }
 
     return 0;

@@ -8,15 +8,14 @@
 #include <memory>
 #include <iostream>
 
-
 namespace wui {
 
 
     class SystemDriver {
     public:
 
-        static std::shared_ptr<SystemDriver> getNew();
 
+		    static std::unique_ptr<SystemDriver> getNew();
 
         // get the absolute filename of the executable binary
         virtual std::string getBinFileName() = 0;

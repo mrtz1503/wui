@@ -4,11 +4,11 @@
 #include "wui/Window.h"
 
 #include <string>
+#include <memory>
 #include <vector>
 
 
 namespace wui {
-
 
 
     class Application {
@@ -30,10 +30,12 @@ namespace wui {
         static void registerWindow(Window *window);
         static void unregisterWindow(Window *window);
 
-        static std::vector<Window*> m_windows;
 
+		static SystemDriver *getSysDriver();
+        static std::vector<Window*> m_windows;
         static std::shared_ptr<SystemDriver> s_sysDriver;
 
+		static std::unique_ptr<SystemDriver> m_sysDriver;
     };
 
 }
