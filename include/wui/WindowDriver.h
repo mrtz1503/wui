@@ -1,8 +1,8 @@
 #pragma once
 
-#include <memory>
-
 #include <string>
+#include <Windows.h>
+#include <memory>
 
 namespace wui {
 
@@ -18,17 +18,16 @@ namespace wui {
 
 
 		virtual void create() = 0;
+		virtual void resize(int x, int y, int cx, int cy) = 0;
         
-
-
 
 
 	private:
 		void setWindow(Window* window);
 
-
-		Window *m_window;
+    Window *m_window;		
 	};
+
 
 
 

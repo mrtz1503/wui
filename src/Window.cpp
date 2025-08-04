@@ -1,5 +1,7 @@
 #include "wui/Window.h"
 
+#include "wui/WindowDriver.h"
+#include "wui/Application.h"
 
 namespace wui {
 
@@ -9,16 +11,7 @@ namespace wui {
     };
 
 
-	struct WindowData {
-		int minWidth, minHeight;
-		int maxWidth, maxHeight;
 
-        int width, height;
-        int x, y;
-
-
-
-	};
 
 	Window::Window()
 	{
@@ -33,7 +26,9 @@ namespace wui {
 
 	}
 
-
+  Window::~Window()
+    {
+    }
 	
 
 

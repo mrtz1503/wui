@@ -5,17 +5,21 @@
 #include <Windows.h>
 
 namespace wui {
-    class Win32_WindowDriver : public WindowDriver {
+
+    class Win32WindowDriver : public WindowDriver {
     public:
 
-        virtual void create() override; 
+        virtual void create() override;
+        virtual void resize(int x, int y, int cx, int cy) override;
 
+        
 
     private:
-
-
-
-
         HWND m_hWnd;
     };
-} // namespace wui  
+
+
+
+
+}
+

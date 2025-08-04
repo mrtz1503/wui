@@ -15,5 +15,4 @@ namespace wui {
     {
         return std::make_unique<Win32_WindowDriver>();
     }
-
 }
