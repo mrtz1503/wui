@@ -18,7 +18,7 @@ set(SOURCE_FILES
     SystemDriver.cpp
     Utils.cpp
     WindowDriver.cpp
-   
+    platform/Platform.cpp
 
     Definition.h
 
@@ -27,7 +27,6 @@ set(SOURCE_FILES
 if (WIN32)
     set(PLATFORM_SOURCES
         Win32_Error.cpp
-        Win32_Init.cpp
         Win32_SystemDriver.cpp
         Win32_WindowDriver.cpp
     )

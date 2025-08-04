@@ -26,9 +26,6 @@ namespace wui {
 
 	}
 
-  Window::~Window()
-    {
-    }
 	
 
 

@@ -12,7 +12,6 @@
 namespace wui {
 
 
-    std::unique_ptr<SystemDriver> Application::m_sysDriver = SystemDriver::getNew();
 
     void Application::run()
     {

@@ -2,6 +2,7 @@
 
 #include "wui/SystemDriver.h"
 #include "wui/Window.h"
+#include "wui/Platform.h"
 
 #include <string>
 #include <memory>
@@ -10,6 +11,7 @@
 
 namespace wui {
 
+    
 
     class Application {
 
@@ -18,22 +20,14 @@ namespace wui {
 
         Application();
 
-
         static void run();
-
-
-
-        static std::shared_ptr<SystemDriver> getSysDriver();
-
-    private:
-
-        static void registerWindow(Window *window);
-        static void unregisterWindow(Window *window);
-
 
 		static SystemDriver *getSysDriver();
         static std::vector<Window*> m_windows;
-        static std::shared_ptr<SystemDriver> s_sysDriver;
+
+        static Window* findWindow(XID id);
+
+    private:
 
 		static std::unique_ptr<SystemDriver> m_sysDriver;
     };
