@@ -19,8 +19,13 @@ namespace wui {
 
         static std::wstring utf8ToWideChar(const std::string& str);
         static std::string wideCharToUtf8(const std::wstring& strW);
-    protected:
+    
 
+        static bool hasClass(const std::wstring& name);
+
+
+    private:
+        static HINSTANCE m_hInst;
     };
 
 }

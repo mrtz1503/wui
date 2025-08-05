@@ -8,6 +8,9 @@
 
 namespace wui {
 
+    HINSTANCE Win32SystemDriver::m_hInst = GetModuleHandleW(NULL);
+
+
 
     std::string Win32SystemDriver::getBinFileName()
     {
@@ -121,4 +124,17 @@ namespace wui {
 
 
     }
+
+
+
+
+
+    bool Win32SystemDriver::hasClass(const std::wstring& name)
+    {
+        LPWNDCLASSW lpWndClass = {};
+        return static_cast<bool>(::GetClassInfoW(m_hInst, name.c_str(), lpWndClass));
+    }
+
+
+
 }

@@ -1,21 +1,24 @@
 #pragma once
 
 #include "wui/SystemDriver.h"
-#include "wui/Window.h"
-#include "wui/Platform.h"
 
 #include <string>
 #include <memory>
 #include <vector>
-
+#include <unordered_map>
 
 namespace wui {
 
     
 
+    class Window;
+    class WindowDriver;
+
     class Application {
 
         friend class Window;
+        friend class WindowDriver;
+
     public:
 
         Application();
@@ -25,9 +28,11 @@ namespace wui {
 		static SystemDriver *getSysDriver();
         static std::vector<Window*> m_windows;
 
-        static Window* findWindow(XID id);
 
     private:
+
+        static Window* findWindow(WindowDriver* drv);
+        static std::unordered_map<Window*, WindowDriver*> m_windows;
 
 		static std::unique_ptr<SystemDriver> m_sysDriver;
     };
