@@ -15,7 +15,7 @@ namespace wui {
     public:
 
 
-		    static std::unique_ptr<SystemDriver> getNew();
+        static std::unique_ptr<SystemDriver> getNew();
 
         // get the absolute filename of the executable binary
         virtual std::string getBinFileName() = 0;
@@ -49,6 +49,8 @@ namespace wui {
 
         virtual std::string getProcName() = 0;
 
+
+        virtual void pumpMessages() = 0;
 
     };
 

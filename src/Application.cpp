@@ -6,26 +6,26 @@
 
 #include "wui/SystemDriver.h"
 
-
 #include <Windows.h>
 
 namespace wui {
 
-
+    std::unique_ptr<SystemDriver> Application::s_sysDriver = SystemDriver::getNew();
+    std::set<Window*> Application::s_windows;
 
     void Application::run()
     {
 
         // run event loop
 
-
+        while (Application::s_windows.size() > 0) { s_sysDriver->pumpMessages(); };
     }
 
 
 
-    SystemDriver *Application::getSysDriver()
+    SystemDriver* Application::getSysDriver()
     {
-        return m_sysDriver.get();
+        return s_sysDriver.get();
     }
 
 

@@ -13,23 +13,23 @@ namespace wui {
 
     void Win32WindowDriver::create()
     {
-        
-        if (Win32SystemDriver::hasClass(m_className))
+        std::wstring className;
+
+        if (Win32SystemDriver::hasClass(className))
         {
             WNDCLASSEXW wc = {};
             wc.cbSize = sizeof(WNDCLASSEXW);
-            
 
 
-
-            return;
+            ::RegisterClassExW(wc);
         }
 
+        ::CreateWindowExW(, className.c_str(), );
 
 
-        ::SetWindowSubclass(m_hwnd, 
-                            Win32WindowDriver::SubClassProc, 
-                            reinterpret_cast<UINT_PTR>(this), 
+        ::SetWindowSubclass(m_hwnd,
+                            Win32WindowDriver::SubClassProc,
+                            reinterpret_cast<UINT_PTR>(this),
                             reinterpret_cast<DWORD_PTR>(getWindow()));
 
 
@@ -45,15 +45,9 @@ namespace wui {
 
     };
 
-    LRESULT CALLBACK Win32WindowDriver::WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
+    LRESULT Win32WindowDriver::SubClassProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam, UINT_PTR uIdSubclass, DWORD_PTR dwRefData)
     {
-
-        
-        
-
-
-
-
+        return ::DefSubclassProc(hWnd, uMsg, wParam, lParam);
     }
 
 

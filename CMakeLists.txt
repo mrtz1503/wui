@@ -19,6 +19,9 @@ set(SOURCE_FILES
     Utils.cpp
     WindowDriver.cpp
     Definition.h
+
+    gui/Widget.cpp
+    gui/FramedWindow.cpp
 )
 
 if (WIN32)
@@ -48,6 +51,8 @@ target_include_directories(wui
     PRIVATE
         ${CMAKE_CURRENT_SOURCE_DIR}/src
 )
+
+target_link_libraries(${PROJECT_NAME} PUBLIC Comctl32.lib)
 
 
 

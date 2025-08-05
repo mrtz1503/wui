@@ -1,6 +1,7 @@
 #include "platform/win/Win32_SystemDriver.h"
 
 #include "wui/Error.h"
+
 #include <windows.h>
 #include <string>
 #include <stdexcept>
@@ -8,7 +9,7 @@
 
 namespace wui {
 
-    HINSTANCE Win32SystemDriver::m_hInst = GetModuleHandleW(NULL);
+    HINSTANCE Win32SystemDriver::s_hInst = GetModuleHandleW(NULL);
 
 
 
@@ -56,6 +57,26 @@ namespace wui {
                       utf8ToWideChar(caption).c_str(),
                       MB_OK | MB_ICONERROR);
     }
+
+
+    void Win32SystemDriver::pumpMessages()
+    {
+        ::MsgWaitForMultipleObjects(0, NULL, FALSE, INFINITE, QS_ALLINPUT);
+
+        MSG msg = {};
+        while (::PeekMessageW(&msg, NULL, 0, 0, PM_REMOVE) > 0)
+        {
+
+            std::cout << "Msg: " << msg.message << std::endl;
+            ::TranslateMessage(&msg);
+            ::DispatchMessageW(&msg);
+        }
+
+
+
+    }
+
+
 
 
 
@@ -131,9 +152,10 @@ namespace wui {
 
     bool Win32SystemDriver::hasClass(const std::wstring& name)
     {
-        LPWNDCLASSW lpWndClass = {};
-        return static_cast<bool>(::GetClassInfoW(m_hInst, name.c_str(), lpWndClass));
+        WNDCLASSW wndClass = {};
+        return static_cast<bool>(::GetClassInfoW(Win32SystemDriver::s_hInst, name.c_str(), &wndClass));
     }
+
 
 
 

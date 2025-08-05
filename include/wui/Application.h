@@ -4,12 +4,11 @@
 
 #include <string>
 #include <memory>
-#include <vector>
-#include <unordered_map>
+#include <set>
 
 namespace wui {
 
-    
+
 
     class Window;
     class WindowDriver;
@@ -21,20 +20,16 @@ namespace wui {
 
     public:
 
-        Application();
 
         static void run();
 
-		static SystemDriver *getSysDriver();
-        static std::vector<Window*> m_windows;
+        static SystemDriver* getSysDriver();
 
 
     private:
 
-        static Window* findWindow(WindowDriver* drv);
-        static std::unordered_map<Window*, WindowDriver*> m_windows;
-
-		static std::unique_ptr<SystemDriver> m_sysDriver;
+        static std::set<Window*> s_windows;
+        static std::unique_ptr<SystemDriver> s_sysDriver;
     };
 
 }

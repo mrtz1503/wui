@@ -3,8 +3,10 @@
 #include "platform/win/Win32_SystemDriver.h"
 #include "platform/win/Win32_WindowDriver.h"
 
-#include <Windows.h>
 #include <memory>
+
+#pragma comment(linker,"\"/manifestdependency:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='*' publicKeyToken='6595b64144ccf1df' language='*'\"")
+
 
 namespace wui {
 

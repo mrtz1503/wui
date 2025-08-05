@@ -3,36 +3,36 @@
 #include "wui/WindowDriver.h"
 #include <memory>
 
+#include "wui/gui/Group.h"
+
+#include <set>
+
 namespace wui {
-    class Window {
+    class Window : public Group {
     public:
 
-        enum Styles {
-            Framed = 1 << 0,
-        };
+        
 
-        enum Flags {
-            Shown = 1 << 0,
-            Hidden = 1 << 1,
-            Resizable = 1 << 2,
-            Fullscreen = 1 << 3,
-            Maximized = 1 << 4,
-            Minimized = 1 << 5,
 
-        };
+    public:
 
         Window();
 
         virtual void show();
 
-        virtual bool isShown() const { return m_flags & Flags::Shown; }
+        virtual bool isVisible() const { return hasFlag(Flag::Visible); }
+
+
+
+    protected:
+
 
 
     private:
-         // every window has a platform specific WindowDriver that contains the platform specific window data (e.g. HWND - Win32)
-        std::unique_ptr<WindowDriver> m_driver;
+        // every window has a platform specific WindowDriver that contains the platform specific window data (e.g. HWND - Win32)
+        std::unique_ptr<WindowDriver> m_drv;
 
-        Flags m_flags;
+        
     };
 
 

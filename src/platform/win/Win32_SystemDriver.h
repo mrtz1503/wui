@@ -3,6 +3,7 @@
 #include "wui/SystemDriver.h"
 
 #include <string>
+#include <Windows.h>
 
 namespace wui {
 
@@ -17,6 +18,12 @@ namespace wui {
         virtual void displayWarning(const std::string& str) override;
         virtual void displayError(const std::string& str) override;
 
+
+
+        virtual void pumpMessages() override;
+
+
+
         static std::wstring utf8ToWideChar(const std::string& str);
         static std::string wideCharToUtf8(const std::wstring& strW);
     
@@ -25,7 +32,8 @@ namespace wui {
 
 
     private:
-        static HINSTANCE m_hInst;
+
+        static HINSTANCE s_hInst;
     };
 
 }
