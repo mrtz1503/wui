@@ -9,11 +9,11 @@ namespace wui {
 	public:
 		
 
-
+		virtual void calcBoundingSize() override;
 
 
 	private:
-		std::vector<Widget*> children;
+		std::vector<Widget*> m_children;
 	};
 
 

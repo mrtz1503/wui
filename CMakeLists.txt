@@ -21,6 +21,8 @@ set(SOURCE_FILES
     Definition.h
 
     gui/Widget.cpp
+    gui/Group.cpp
+
     gui/FramedWindow.cpp
 )
 
@@ -35,6 +37,16 @@ if (WIN32)
     list(TRANSFORM PLATFORM_SOURCES PREPEND "src/platform/win/")
 
 endif()
+
+if (GDI) 
+    set(GRAPHICS_SOURCES
+        GDI_GraphicsDriver.h
+        GDI_GraphicsDriver.cpp
+    )
+
+    list(TRANSFORM GRAPHICS_SOURCES PREPEND "src/platform/gdi/")
+endif()
+
 
 
 

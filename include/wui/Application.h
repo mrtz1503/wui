@@ -9,7 +9,6 @@
 namespace wui {
 
 
-
     class Window;
     class WindowDriver;
 
@@ -20,15 +19,12 @@ namespace wui {
 
     public:
 
-
         static void run();
-
         static SystemDriver* getSysDriver();
 
 
     private:
 
-        static std::set<Window*> s_windows;
         static std::unique_ptr<SystemDriver> s_sysDriver;
     };
 

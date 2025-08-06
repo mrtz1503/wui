@@ -1,4 +1,4 @@
-#include "wui/Error.h"
+#include "platform/win/Win32_Error.h"
 
 #include <stdexcept>
 #include <Windows.h>

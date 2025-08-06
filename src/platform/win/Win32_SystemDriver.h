@@ -22,16 +22,21 @@ namespace wui {
 
         virtual void pumpMessages() override;
 
-
+        
 
         static std::wstring utf8ToWideChar(const std::string& str);
         static std::string wideCharToUtf8(const std::wstring& strW);
-    
+
 
         static bool hasClass(const std::wstring& name);
 
+        static HINSTANCE getInst()
+        {
+            return s_hInst;
+        }
 
     private:
+
 
         static HINSTANCE s_hInst;
     };

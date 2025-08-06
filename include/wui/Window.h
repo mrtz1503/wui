@@ -5,24 +5,35 @@
 
 #include "wui/gui/Group.h"
 
-#include <set>
-
 namespace wui {
     class Window : public Group {
     public:
 
-        
-
-
-    public:
-
         Window();
 
+        // show / create window
         virtual void show();
+        // hide window
+        virtual void hide();
+        // close window
+        virtual void close();
 
-        virtual bool isVisible() const { return hasFlag(Flag::Visible); }
+
+        // window created?
+        virtual bool visible() const { return hasFlag(Flag::Visible); }
 
 
+        virtual void setSize(int width, int height) override;
+
+        virtual void addFlag(Flag flag) override {
+            Group::addFlag(flag);
+            m_drv->flags(getFlags());
+        }
+
+        virtual void removeFlag(Flag flag) override {
+            Group::removeFlag(flag);
+            m_drv->flags(getFlags());
+        }
 
     protected:
 
@@ -33,6 +44,7 @@ namespace wui {
         std::unique_ptr<WindowDriver> m_drv;
 
         
+
     };
 
 

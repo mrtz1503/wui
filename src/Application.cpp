@@ -11,22 +11,16 @@
 namespace wui {
 
     std::unique_ptr<SystemDriver> Application::s_sysDriver = SystemDriver::getNew();
-    std::set<Window*> Application::s_windows;
 
     void Application::run()
     {
-
-        // run event loop
-
-        while (Application::s_windows.size() > 0) { s_sysDriver->pumpMessages(); };
+        // process event loop
+        while (true) { s_sysDriver->pumpMessages(); };
     }
-
 
 
     SystemDriver* Application::getSysDriver()
     {
         return s_sysDriver.get();
     }
-
-
 }
