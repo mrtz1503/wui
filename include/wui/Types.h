@@ -3,17 +3,17 @@
 
 namespace wui {
 
-    template <typename T>
-    class XID {
-    public:
 
-        XID(T id) : m_id(id) {};
+	struct Point {
+        int x = 0;
+        int y = 0;
+	};
 
-        T get() const { return m_id; }
-        void set(T id) { m_id = id; }
 
-    private:
-        T m_id;
+    struct Size {
+        int width = 0;
+        int height = 0;
     };
+
 
 }

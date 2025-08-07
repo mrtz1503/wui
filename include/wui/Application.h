@@ -19,13 +19,18 @@ namespace wui {
 
     public:
 
-        static void run();
-        static SystemDriver* getSysDriver();
+        void run();
+        SystemDriver* getSystemDrviver();
+        ScreenDriver* getScreenDrviver();
+
 
 
     private:
 
-        static std::unique_ptr<SystemDriver> s_sysDriver;
+
+        std::unique_ptr<SystemDriver> m_systemDriver;
+        std::unique_ptr<ScreenDriver> m_screenDriver;
+
     };
 
 }

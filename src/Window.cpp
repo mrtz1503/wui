@@ -7,19 +7,30 @@ namespace wui {
 
     Window::Window()
     {
-        Application::s_windows.insert(this);
-
         m_drv = WindowDriver::getNew();
         m_drv->setWindow(this);
     }
 
-    void Window::show()
+    void Window::show(int x, int y, int width, int height)
     {
+     
+
+            show();
         if (!m_drv->created())
             m_drv->create();
 
-        if (!visible())
-            addFlag(Flag::Visible);
+        addFlag(Flag::Visible);
+
+        if ()
+        {
+
+        }
+
+        m_drv->getDefWindowPos();
+
+
+
+
     }
 
     void Window::hide()

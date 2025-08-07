@@ -1,16 +1,19 @@
 #include "graphics/gdi/GDI_GraphicsDriver.h"
 
 #include <WinUser.h>
+#include <windows.h>
 
 namespace wui {
 
-    void GDI_GraphicsDriver::rect(int x, int y, int w, int h)
+    void GraphicsDriver::rect(int x, int y, int w, int h)
     {
-        ::FillRect();
+        PAINTSTRUCT ps = {};
+        HDC hDc = ::BeginPaint(m_windowDriver->getHandle(), &ps);
 
+        ::FillRect(hDc, ps.rcPaint, );
+
+        ::EndPaint(m_windowDriver->getHandle(), &ps);
     }
-
-
 
 }
 

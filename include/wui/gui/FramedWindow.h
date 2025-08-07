@@ -7,13 +7,6 @@ namespace wui {
     public:
      
         FramedWindow();
-
-        bool FramedWindow::onCreate(CreateEvent& event);
-
-
-
-
-
     private:
 
 

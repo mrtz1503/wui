@@ -3,24 +3,16 @@
 
 int main()
 {
-    try
-    {
-        wui::FramedWindow fw;
-        wui::
-        fw.add();
-        fw.show();
+    wui::Application app;
 
-        wui::Application::run();
-    }
-    catch (const std::exception& e)
-    {
-        wui::Application::getSysDriver()->
-            displayError("%s, %s",
-                         "An unhandled error occured while running the application : \n\t",
-                         e.what());
+    // Window related stuff
+    wui::FramedWindow fw;
+    fw.show();
 
-        exit(EXIT_FAILURE);
-    }
 
+
+
+
+    app.run();
     return 0;
 }
